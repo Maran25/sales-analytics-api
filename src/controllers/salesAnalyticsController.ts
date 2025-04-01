@@ -3,7 +3,8 @@ import SalesAnalyticsService from "../services/salesAnalyticsService";
 
   export const getTopNProductsOverall = async (req: Request, res: Response) => {
     try {
-      const { N, startDate, endDate } = req.query;
+      const { N, startDate, endDate } = res.locals.reqdata;
+      console.log('data***', res.locals.reqdata)
       const data = await SalesAnalyticsService.getTopNProductsOverall(
         Number(N),
         String(startDate),
@@ -17,7 +18,7 @@ import SalesAnalyticsService from "../services/salesAnalyticsService";
 
   export const getTopNProductsByCategory = async (req: Request, res: Response) => {
     try {
-      const { N, category, startDate, endDate } = req.query;
+      const { N, category, startDate, endDate } = res.locals.reqdata;
       const data = await SalesAnalyticsService.getTopNProductsByCategory(
         Number(N),
         String(category),
@@ -32,7 +33,7 @@ import SalesAnalyticsService from "../services/salesAnalyticsService";
 
   export const getTopNProductsByRegion = async (req: Request, res: Response) => {
     try {
-      const { N, region, startDate, endDate } = req.query;
+      const { N, region, startDate, endDate } = res.locals.reqdata;
       const data = await SalesAnalyticsService.getTopNProductsByRegion(
         Number(N),
         String(region),

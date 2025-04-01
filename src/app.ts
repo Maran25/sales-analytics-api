@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import express, { Express } from "express";
+import express, { Express, Request, Response } from "express";
 import { errorHandler } from "./middlewares/errorHandler";
 import { rateLimiter } from "./middlewares/rateLimiter";
 import routes from "./routes";
@@ -12,6 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(rateLimiter);
+
+app.get('/', (req: Request, res: Response) => {
+    res.send('Hello World!');
+})
 
 app.use("/api", routes);
 app.use(errorHandler);
