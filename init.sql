@@ -1,0 +1,40 @@
+-- -- Customers table
+-- CREATE TABLE customers (
+--   id SERIAL PRIMARY KEY,
+--   customer_id VARCHAR(64) UNIQUE NOT NULL,
+--   name VARCHAR(64),
+--   email VARCHAR(64),
+--   address VARCHAR(300),
+--   created_at TIMESTAMP DEFAULT NOW()
+-- );
+
+-- -- Products table
+-- CREATE TABLE products (
+--   id SERIAL PRIMARY KEY,
+--   product_id VARCHAR(64) UNIQUE NOT NULL,
+--   name VARCHAR(64) NOT NULL,
+--   category VARCHAR(64) NOT NULL,
+--   created_at TIMESTAMP DEFAULT NOW()
+-- );
+
+-- -- Orders table
+-- CREATE TABLE orders (
+--   id SERIAL PRIMARY KEY,
+--   order_id VARCHAR(64) UNIQUE NOT NULL,
+--   customer_id INTEGER REFERENCES customers(id) ON DELETE CASCADE,
+--   region VARCHAR(64) NOT NULL,
+--   payment_method VARCHAR(255) NOT NULL,
+--   created_at TIMESTAMP DEFAULT NOW()
+-- );
+
+-- -- Order Items table
+-- CREATE TABLE order_items (
+--   id SERIAL PRIMARY KEY,
+--   order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+--   product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
+--   quantity_sold INTEGER NOT NULL,
+--   unit_price FLOAT NOT NULL,
+--   discount FLOAT NOT NULL,
+--   shipping_cost FLOAT NOT NULL,
+--   created_at TIMESTAMP DEFAULT NOW()
+-- );
