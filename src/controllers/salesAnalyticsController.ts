@@ -4,7 +4,7 @@ import SalesAnalyticsService from "../services/salesAnalyticsService";
   export const getTopNProductsOverall = async (req: Request, res: Response) => {
     try {
       const { N, startDate, endDate } = res.locals.reqdata;
-      console.log('data***', res.locals.reqdata)
+      console.log('data**', res.locals.reqdata)
       const data = await SalesAnalyticsService.getTopNProductsOverall(
         Number(N),
         String(startDate),
